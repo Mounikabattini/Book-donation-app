@@ -53,9 +53,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:inputType="textPassword"
-                        android:id="@+id/edPassword"
-                        android:maxLength="10"
+                        android:id="@+id/edPhone"
                         android:hint="enter gmail number" />
 
 
@@ -63,10 +61,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:inputType="number"
-                        android:id="@+id/edPhone"
+                        android:inputType="textPassword"
+                        android:id="@+id/edPassword"
                         android:maxLength="10"
-                        android:hint="enter gmail number" />
+                        android:hint="enter Password number" />
 
                     <TextView
                         android:layout_width="match_parent"

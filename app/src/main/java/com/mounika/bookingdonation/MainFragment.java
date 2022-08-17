@@ -43,10 +43,9 @@ public class MainFragment extends Fragment {
             @Override
 
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "work  in progress", Toast.LENGTH_SHORT).show();
                 if(isValidate()) {
 
-                    Intent itemIntent = new Intent(getActivity(), MainActivity.class);
+                    Intent itemIntent = new Intent(getActivity(), SaveDonationFragment.class);
                     startActivity(itemIntent);
                 }
             }
@@ -59,7 +58,7 @@ public class MainFragment extends Fragment {
                                               @NonNull CharSequence errString) {
                 super.onAuthenticationError(errorCode, errString);
                 Toast.makeText(getActivity().getApplicationContext(),
-                                "Authentication error: " + errString, Toast.LENGTH_SHORT)
+                        "Authentication error: " + errString, Toast.LENGTH_SHORT)
                         .show();
             }
 
@@ -69,7 +68,7 @@ public class MainFragment extends Fragment {
                 super.onAuthenticationSucceeded(result);
                 Toast.makeText(getActivity().getApplicationContext(),
                         "Authentication succeeded!", Toast.LENGTH_SHORT).show();
-                Intent  itemIntent = new Intent(getActivity(),MainActivity.class);
+                Intent  itemIntent = new Intent(getActivity(),SaveDonationFragment.class);
                 startActivity(itemIntent);
 
             }
@@ -78,7 +77,7 @@ public class MainFragment extends Fragment {
             public void onAuthenticationFailed() {
                 super.onAuthenticationFailed();
                 Toast.makeText(getActivity().getApplicationContext(), "Authentication failed",
-                                Toast.LENGTH_SHORT)
+                        Toast.LENGTH_SHORT)
                         .show();
             }
         });
@@ -102,7 +101,7 @@ public class MainFragment extends Fragment {
 
     private boolean isValidate() {
         if(edPhone.getText().length() < 10){
-            Toast.makeText(getActivity()," Enter valid phone number ",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity()," Enter valid Email number ",Toast.LENGTH_SHORT).show();
             return  false;
         }else{
             return true;
