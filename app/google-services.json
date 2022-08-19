@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "398879759063",
+    "project_id": "bookingdonation",
+    "storage_bucket": "bookingdonation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398879759063:android:973bfedaa071991abe6e92",
+        "android_client_info": {
+          "package_name": "com.mounika.bookingdonation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398879759063-vq2fhggk7tso7opu8v3hmklfrflsfjh1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx6tdRdORjwtn-OBqnvqLrnWddqbdvPCY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398879759063-vq2fhggk7tso7opu8v3hmklfrflsfjh1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
