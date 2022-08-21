@@ -177,8 +177,10 @@ public class SaveDonationFragment extends AppCompatActivity {
                 databaseReference.setValue(donationObject);
                 Log.d("AddDta:::","data"+donationObject.getDonorName());
 
-                Toast.makeText(getApplicationContext(),"Amount Transfored",Toast.LENGTH_SHORT).show();
-                donationObject = new DonationObject();
+                Toast.makeText(getApplicationContext(),"Amount Transfered",Toast.LENGTH_SHORT).show();
+                //donationObject = new DonationObject();
+                Intent  itemIntent = new Intent(SaveDonationFragment.this,HomeActivity.class);
+                startActivity(itemIntent);
 
 
                 // after adding this data we are showing toast message.

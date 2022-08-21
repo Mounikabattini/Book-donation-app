@@ -4,13 +4,16 @@
     xmlns:app="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     app:ignore="NamespaceTypo"
+    android:background="@color/bgcolor"
     android:layout_gravity="center">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:cardCornerRadius="6dp"
         app:cardElevation="6dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         app:ignore="MissingConstraints"
         app:layout_editor_absoluteX="13dp"
         app:layout_editor_absoluteY="278dp">
@@ -32,7 +35,6 @@
                 android:hint="Donor Name "
                 android:padding="5dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
 
                 />
 
@@ -45,7 +47,6 @@
                 android:inputType="number"
                 android:padding="5dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black"
 
                 />
 
@@ -64,7 +65,6 @@
                     android:hint="Location"
                     android:padding="5dp"
                     android:textColor="@color/black"
-                    android:textColorHint="@color/black"
 
                     />
 

@@ -45,7 +45,7 @@ public class MainFragment extends Fragment {
             public void onClick(View view) {
                 if(isValidate()) {
 
-                    Intent itemIntent = new Intent(getActivity(), SaveDonationFragment.class);
+                    Intent itemIntent = new Intent(getActivity(), HomeActivity.class);
                     startActivity(itemIntent);
                 }
             }
@@ -68,7 +68,7 @@ public class MainFragment extends Fragment {
                 super.onAuthenticationSucceeded(result);
                 Toast.makeText(getActivity().getApplicationContext(),
                         "Authentication succeeded!", Toast.LENGTH_SHORT).show();
-                Intent  itemIntent = new Intent(getActivity(),SaveDonationFragment.class);
+                Intent  itemIntent = new Intent(getActivity(),HomeActivity.class);
                 startActivity(itemIntent);
 
             }

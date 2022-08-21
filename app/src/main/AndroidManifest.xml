@@ -30,6 +30,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SaveDonationFragment"/>
+        <activity android:name=".HomeActivity"/>
     </application>
 
 </manifest>
