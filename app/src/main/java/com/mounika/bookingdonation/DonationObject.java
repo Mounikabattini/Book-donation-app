@@ -4,9 +4,19 @@ public class DonationObject {
     String donorName;
     String amount;
     String location;
+    String PhoneNumber;
+    String Title;
+    public DonationObject() {
+
+    }
 
     public void setDonorName(String donorName) {
         this.donorName = donorName;
+    }
+    public void setDonarPhoneNummber(String PhoneNumber) {
+        this.PhoneNumber = PhoneNumber;
+    } public void setTitle(String Title) {
+        this.Title = Title;
     }
 
     public void setAmount(String amount) {
@@ -35,6 +45,11 @@ public class DonationObject {
 
     public String getTime() {
         return time;
+    }
+    public String getTitle() {
+        return Title;
+    }public String getPhoneNumber() {
+        return PhoneNumber;
     }
 
     String time;
