@@ -1,10 +1,13 @@
 package com.mounika.bookingdonation;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +18,8 @@ import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.mounika.bookingdonation.database.DBHelper;
+
 import java.util.concurrent.Executor;
 
 public class MainFragment extends Fragment {
@@ -22,7 +27,9 @@ public class MainFragment extends Fragment {
     private Executor executor;
     private BiometricPrompt biometricPrompt;
     private BiometricPrompt.PromptInfo promptInfo;
-    private EditText edPhone;
+    private EditText ed_login,ed_password;
+    private Button btnLogin;
+    private TextView signUpTextView;
     View view;
 
     @Override
@@ -32,24 +39,27 @@ public class MainFragment extends Fragment {
         //Inflate the layout for this fragment
 
         view = inflater.inflate(R.layout.activity_main, container, false);
+        initUI();
 
 
 
-
-
-        TextView btnNext = (TextView) view.findViewById(R.id.btn_next);
-        edPhone = (EditText) view.findViewById(R.id.edPhone);
-        btnNext.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-
             public void onClick(View view) {
-                if(isValidate()) {
-
-                    Intent itemIntent = new Intent(getActivity(), HomeActivity.class);
-                    startActivity(itemIntent);
-                }
+               /* Intent  i = new Intent(LoginActivity.this,MainActivity.class);
+                startActivity(i);*/
+                doLogin();
             }
         });
+        signUpTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent  i = new Intent(getActivity(), RegisterActivity.class);
+                getActivity().startActivity(i);
+            }
+        });
+
+
         executor = ContextCompat.getMainExecutor(getActivity());
         biometricPrompt = new BiometricPrompt(getActivity(),
                 executor, new BiometricPrompt.AuthenticationCallback() {
@@ -68,7 +78,7 @@ public class MainFragment extends Fragment {
                 super.onAuthenticationSucceeded(result);
                 Toast.makeText(getActivity().getApplicationContext(),
                         "Authentication succeeded!", Toast.LENGTH_SHORT).show();
-                Intent  itemIntent = new Intent(getActivity(),HomeActivity.class);
+                Intent  itemIntent = new Intent(getActivity(),SaveDonationFragment.class);
                 startActivity(itemIntent);
 
             }
@@ -99,13 +109,39 @@ public class MainFragment extends Fragment {
         return  view;
     }
 
-    private boolean isValidate() {
-        if(edPhone.getText().length() < 10){
-            Toast.makeText(getActivity()," Enter valid Email number ",Toast.LENGTH_SHORT).show();
-            return  false;
-        }else{
-            return true;
+
+
+
+    private void initUI() {
+        btnLogin = (Button) view. findViewById(R.id.email_sign_in_button);
+        ed_login = (EditText) view. findViewById(R.id.email);
+        ed_password = (EditText)  view.findViewById(R.id.password);
+        signUpTextView = (TextView) view. findViewById(R.id.signUpTextView);
+    }
+
+    private void doLogin() {
+        // TODO Auto-generated method stub
+        String Lname,Lpassword;
+        Lname = ed_login.getText().toString();
+        Lpassword = ed_password.getText().toString();
+       /* Intent userDetails = new Intent(MainActivity.this, Home.class);
+        startActivity(userDetails);*/
+
+        DBHelper DBCon = new DBHelper(getActivity());
+        SQLiteDatabase db = DBCon.getWritableDatabase();
+        String sql = "select * from Details where UserName = '"+ Lname+"' and Password = '"+Lpassword+"'" ;
+        Cursor c = db.rawQuery(sql, null);
+        if (c!= null) {
+            Intent i = new Intent(getActivity(), HomeActivity.class);
+            getActivity().startActivity(i);
+            Toast.makeText(getActivity(), "success",
+                    Toast.LENGTH_LONG).show();
+
+        } else {
+            Toast.makeText(getActivity(), "not success",
+                    Toast.LENGTH_LONG).show();
         }
+
     }
 
 }

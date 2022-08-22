@@ -29,17 +29,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
+
 
 public class SaveDonationFragment extends AppCompatActivity {
-    EditText edName,edAmount,edLocation;
+    EditText edName,edAmount,edLocation,edPhone;
     private static final String TAG = "SaveOrdersNew";
     AppLocationService appLocationService;
 
 
     //  private LocationManager mLocationManager;
 
-    private long UPDATE_INTERVAL = 2 * 1000;  /* 10 secs */
-    private long FASTEST_INTERVAL = 2000; /* 2 sec */
     private LocationManager locationManager;
     //FirebaseDatabase firebaseDatabase;
 
@@ -65,7 +65,6 @@ public class SaveDonationFragment extends AppCompatActivity {
         donationObject = new DonationObject();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        databaseReference = firebaseDatabase.getReference("donationObject");
 
 
         appLocationService = new AppLocationService(
@@ -98,10 +97,13 @@ public class SaveDonationFragment extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                databaseReference = firebaseDatabase.getReference(edName.getText().toString());
+
                 String donaterName = edName.getText().toString();
                 String donationAmount = edAmount.getText().toString();
                 String location = edLocation.getText().toString();
-                addDatatoFirebase(donaterName,donationAmount,location);
+                String edPhoneNumber = edPhone.getText().toString();
+                addDatatoFirebase(donaterName,donationAmount,location,edPhoneNumber);
                 // Toast.makeText(getApplicationContext(),"Work in progress",Toast.LENGTH_SHORT).show();
             }
         });
@@ -112,6 +114,7 @@ public class SaveDonationFragment extends AppCompatActivity {
         edName = (EditText)  findViewById(R.id.edName);
         edAmount = (EditText)  findViewById(R.id.edAmount);
         edLocation = (EditText)  findViewById(R.id.edlocation);
+        edPhone = (EditText)  findViewById(R.id.edPhone);
         imLocation = (ImageView)  findViewById(R.id.imLocation);
         save = (Button)  findViewById(R.id.save);
 
@@ -156,15 +159,15 @@ public class SaveDonationFragment extends AppCompatActivity {
         }
     }
 
-    private void addDatatoFirebase(String requestName, String amount, String address) {
+    private void addDatatoFirebase(String donaterName, String amount, String address, String phone) {
         // below 3 lines of code is used to set
         // data in our object class.
         donationObject.setAmount(amount);
-        donationObject.setDonorName(requestName);
+        donationObject.setDonarPhoneNummber(phone);
+        //donationObject.setDonorName(requestName);
         donationObject.setLocation(address);
-        donationObject.setTime("need to update");
+        donationObject.setTime(""+Calendar.getInstance().getTime());
 
-        Log.d("AddDta:::","data"+donationObject.getDonorName());
 
         // we are use add value event listener method
         // which is called with database reference.
@@ -175,12 +178,17 @@ public class SaveDonationFragment extends AppCompatActivity {
                 // our object class to our database reference.
                 // data base reference will sends data to firebase.
                 databaseReference.setValue(donationObject);
-                Log.d("AddDta:::","data"+donationObject.getDonorName());
+                // Log.d("AddDta:::","data"+donationObject.getDonorName());
 
-                Toast.makeText(getApplicationContext(),"Amount Transfered",Toast.LENGTH_SHORT).show();
+                //   databaseReference = null;
+                databaseReference.removeEventListener(this);
+
+                Toast.makeText(getApplicationContext(),"Amount Transford",Toast.LENGTH_SHORT).show();
                 //donationObject = new DonationObject();
-                Intent  itemIntent = new Intent(SaveDonationFragment.this,HomeActivity.class);
+
+                Intent itemIntent = new Intent(SaveDonationFragment.this, HomeActivity.class);
                 startActivity(itemIntent);
+                //  finish();
 
 
                 // after adding this data we are showing toast message.

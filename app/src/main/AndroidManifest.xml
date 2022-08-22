@@ -18,10 +18,6 @@
         android:theme="@style/Theme.BookingDonation">
         <activity
             android:name=".MainActivity"
-            android:exported="false"
-            android:label="@string/title_activity_login" />
-        <activity
-            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,8 +25,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SaveDonationFragment"/>
-        <activity android:name=".HomeActivity"/>
+
+        <activity android:name=".SaveDonationFragment"></activity>
+        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".RegisterActivity"></activity>
     </application>
 
 </manifest>

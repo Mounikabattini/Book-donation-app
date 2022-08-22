@@ -12,18 +12,19 @@
         android:orientation="vertical"
 
         android:gravity="center"
-  >
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:background="@drawable/capsule_shape"
-            android:padding="8dp"
-            android:text="Donate"
-            android:id="@+id/bookDonation"
-            android:textColor="@drawable/btn_select" />
+        app:ignore="MissingConstraints">
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/bookDonation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:text="Donate"
+        app:layout_editor_absoluteX="153dp"
+        app:layout_editor_absoluteY="663dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
