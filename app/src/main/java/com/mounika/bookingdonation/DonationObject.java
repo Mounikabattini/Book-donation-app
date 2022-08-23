@@ -6,6 +6,7 @@ public class DonationObject {
     String location;
     String PhoneNumber;
     String Title;
+    String charityName;
     public DonationObject() {
 
     }
@@ -21,6 +22,9 @@ public class DonationObject {
 
     public void setAmount(String amount) {
         this.amount = amount;
+    }
+    public void setCharityName(String charityName) {
+        this.charityName = charityName;
     }
 
     public void setLocation(String location) {
@@ -45,6 +49,9 @@ public class DonationObject {
 
     public String getTime() {
         return time;
+    }
+    public String getCharityName() {
+        return charityName;
     }
     public String getTitle() {
         return Title;

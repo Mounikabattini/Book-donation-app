@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     app:ignore="NamespaceTypo"
     android:gravity="center"
-    android:background="@color/bgcolor"
+    android:background="@drawable/monyes"
     android:layout_gravity="center">
 
     <androidx.cardview.widget.CardView

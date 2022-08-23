@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookingDonation">
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,6 +29,7 @@
         <activity android:name=".SaveDonationFragment"></activity>
         <activity android:name=".HomeActivity"></activity>
         <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

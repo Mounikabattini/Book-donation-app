@@ -68,7 +68,7 @@ public class MainFragment extends Fragment {
                                               @NonNull CharSequence errString) {
                 super.onAuthenticationError(errorCode, errString);
                 Toast.makeText(getActivity().getApplicationContext(),
-                        "Authentication error: " + errString, Toast.LENGTH_SHORT)
+                                "Authentication error: " + errString, Toast.LENGTH_SHORT)
                         .show();
             }
 
@@ -87,7 +87,7 @@ public class MainFragment extends Fragment {
             public void onAuthenticationFailed() {
                 super.onAuthenticationFailed();
                 Toast.makeText(getActivity().getApplicationContext(), "Authentication failed",
-                        Toast.LENGTH_SHORT)
+                                Toast.LENGTH_SHORT)
                         .show();
             }
         });

@@ -56,11 +56,16 @@ public class SaveDonationFragment extends AppCompatActivity {
     // creating a variable for our Database
     // Reference for Firebase.
     DatabaseReference databaseReference;
+    String charityName;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.save_donation_activity);
+        if(getIntent().getExtras() != null) {
+            charityName = getIntent().getExtras().getString("ITEMID");
+        }
+
         initUI();
         donationObject = new DonationObject();
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -104,7 +109,7 @@ public class SaveDonationFragment extends AppCompatActivity {
                 String location = edLocation.getText().toString();
                 String edPhoneNumber = edPhone.getText().toString();
                 addDatatoFirebase(donaterName,donationAmount,location,edPhoneNumber);
-                // Toast.makeText(getApplicationContext(),"Work in progress",Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getApplicationContext(),"Work in progress",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -162,6 +167,7 @@ public class SaveDonationFragment extends AppCompatActivity {
     private void addDatatoFirebase(String donaterName, String amount, String address, String phone) {
         // below 3 lines of code is used to set
         // data in our object class.
+        donationObject.setCharityName(charityName);
         donationObject.setAmount(amount);
         donationObject.setDonarPhoneNummber(phone);
         //donationObject.setDonorName(requestName);
@@ -178,9 +184,9 @@ public class SaveDonationFragment extends AppCompatActivity {
                 // our object class to our database reference.
                 // data base reference will sends data to firebase.
                 databaseReference.setValue(donationObject);
-                // Log.d("AddDta:::","data"+donationObject.getDonorName());
+               // Log.d("AddDta:::","data"+donationObject.getDonorName());
 
-                //   databaseReference = null;
+             //   databaseReference = null;
                 databaseReference.removeEventListener(this);
 
                 Toast.makeText(getApplicationContext(),"Amount Transford",Toast.LENGTH_SHORT).show();
@@ -188,13 +194,13 @@ public class SaveDonationFragment extends AppCompatActivity {
 
                 Intent itemIntent = new Intent(SaveDonationFragment.this, HomeActivity.class);
                 startActivity(itemIntent);
-                //  finish();
+              //  finish();
 
 
                 // after adding this data we are showing toast message.
                 //Toast.makeText(SaveOrderActivity.this, "Request submited ", Toast.LENGTH_SHORT).show();
-                // Intent i = new Intent(SaveOrderActivity.this,MainItemActivity.class);
-                // startActivity(i);
+               // Intent i = new Intent(SaveOrderActivity.this,MainItemActivity.class);
+               // startActivity(i);
             }
 
             @Override
