@@ -23,12 +23,14 @@ public class CustomAdapter extends ArrayAdapter<Charity> {
         List<Charity> items_list = new ArrayList<>();
         int custom_layout_id;
         private  Context mContext;
+        HomeActivity mActivity;
 
-public CustomAdapter(@NonNull Context context, int resource, @NonNull List<Charity> objects) {
+public CustomAdapter(@NonNull Context context, int resource, @NonNull List<Charity> objects, HomeActivity homeActivity) {
         super(context, resource, objects);
         items_list = objects;
         custom_layout_id = resource;
         mContext= context;
+        mActivity = homeActivity;
         }
 
 @Override
@@ -65,6 +67,8 @@ public View getView(int position, @Nullable View convertView, @NonNull ViewGroup
                         Intent intent = new Intent(mContext, SaveDonationFragment.class);
                         intent.putExtra("ITEMID",item.getText());
                         mContext.startActivity(intent);
+                       // mContext.finish();
+                        //mActivity.finish();
 
                 }
         });

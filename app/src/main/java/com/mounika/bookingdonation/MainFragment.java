@@ -48,7 +48,9 @@ public class MainFragment extends Fragment {
             public void onClick(View view) {
                /* Intent  i = new Intent(LoginActivity.this,MainActivity.class);
                 startActivity(i);*/
-                doLogin();
+                if(!validate()) {
+                    doLogin();
+                }
             }
         });
         signUpTextView.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +80,7 @@ public class MainFragment extends Fragment {
                 super.onAuthenticationSucceeded(result);
                 Toast.makeText(getActivity().getApplicationContext(),
                         "Authentication succeeded!", Toast.LENGTH_SHORT).show();
-                Intent  itemIntent = new Intent(getActivity(),SaveDonationFragment.class);
+                Intent  itemIntent = new Intent(getActivity(),HomeActivity.class);
                 startActivity(itemIntent);
 
             }
@@ -110,6 +112,18 @@ public class MainFragment extends Fragment {
     }
 
 
+    private boolean validate(){
+        if(ed_login.getText().toString().trim() == null ||  ed_login.getText().length() == 0){
+            Toast.makeText(getActivity(), "Please enter all details", Toast.LENGTH_LONG).show();
+            return  true;
+
+        }if(ed_password.getText().toString().trim() == null ||  ed_password.getText().length() == 0){
+            Toast.makeText(getActivity(), "Please enter Password", Toast.LENGTH_LONG).show();
+            return  true;
+
+        }
+        return  false;
+    }
 
 
     private void initUI() {
@@ -131,7 +145,7 @@ public class MainFragment extends Fragment {
         SQLiteDatabase db = DBCon.getWritableDatabase();
         String sql = "select * from Details where UserName = '"+ Lname+"' and Password = '"+Lpassword+"'" ;
         Cursor c = db.rawQuery(sql, null);
-        if (c!= null) {
+        if (c!= null && c.getCount() > 0) {
             Intent i = new Intent(getActivity(), HomeActivity.class);
             getActivity().startActivity(i);
             Toast.makeText(getActivity(), "success",

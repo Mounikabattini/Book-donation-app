@@ -7,6 +7,16 @@ public class DonationObject {
     String PhoneNumber;
     String Title;
     String charityName;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    String email;
     public DonationObject() {
 
     }

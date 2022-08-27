@@ -28,7 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(validate()) {
+                if(!validate()) {
                     String userName, password;
                     userName = ed_email.getText().toString();
                     password = ed_password.getText().toString();
@@ -60,15 +60,24 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private boolean validate(){
-        if(ed_password.getText().length() > 0 && ed_cnPassword.getText().length() > 0){
+        if(ed_email.getText().toString().trim() == null || ed_email.getText().toString().length() ==0){
             Toast.makeText(getApplicationContext(), "Please enter all details", Toast.LENGTH_LONG).show();
-            return  false;
-
-        }else if(ed_password.getText().toString().trim().equalsIgnoreCase(ed_cnPassword.getText().toString().trim())){
             return  true;
 
+        }if(ed_password.getText().toString().trim() == null || ed_password.getText().toString().length() == 0){
+            Toast.makeText(getApplicationContext(), "Please enter Password", Toast.LENGTH_LONG).show();
+            return  true;
+
+        }if(ed_cnPassword.getText().toString().trim() == null || ed_cnPassword.getText().toString().length() == 0){
+            Toast.makeText(getApplicationContext(), "Please enter Confirm password", Toast.LENGTH_LONG).show();
+            return  true;
+
+        }else if(ed_password.getText().toString().trim().equalsIgnoreCase(ed_cnPassword.getText().toString().trim())){
+//            Toast.makeText(getApplicationContext(), "Password Not match", Toast.LENGTH_LONG).show();
+//
+            return  false;
+
         }else{
-            Toast.makeText(getApplicationContext(), "Password Not match", Toast.LENGTH_LONG).show();
             return  false;
 
         }
@@ -78,8 +87,8 @@ public class RegisterActivity extends AppCompatActivity {
     private void initUI() {
         btnSignUp = (Button)  findViewById(R.id.email_sign_Up_button);
         ed_email = (EditText)  findViewById(R.id.email);
-        ed_password = (EditText)  findViewById(R.id.password);
-        ed_password = (EditText)  findViewById(R.id.cnpassword);
+        ed_password = (EditText)  findViewById(R.id.passwordone);
+        ed_cnPassword = (EditText)  findViewById(R.id.cnpasswordone);
         signInTextView = (TextView)  findViewById(R.id.signINTextView);
     }
 }
