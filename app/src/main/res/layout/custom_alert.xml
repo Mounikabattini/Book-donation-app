@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thank you for choosing BookingDonation App for donations. Keep supporting us"
+        android:id="@+id/text_dialog"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:textSize="18sp"
+        android:textColor="@color/red"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal" />
+
+    <ImageView
+        android:id="@+id/a"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/text_dialog"
+        android:gravity="center"
+        android:scaleType="fitCenter"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/thankyou"
+        />
+
+    <Button
+        android:id="@+id/btn_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/a"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@color/bgcolor"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="OK"
+        android:textColor="#ffffffff" />
+
+</RelativeLayout>

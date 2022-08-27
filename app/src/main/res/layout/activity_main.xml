@@ -1,4 +1,5 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:gravity="center_vertical|center_horizontal"
     android:orientation="vertical"
@@ -6,7 +7,7 @@
     android:paddingLeft="5dp"
     android:paddingRight="5dp"
     android:paddingTop="5dp"
-    android:background="#ffBE80FF"
+    android:background="@color/bgcolor"
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true">
 
@@ -60,14 +61,15 @@
                         android:textColorHint="#ffffffff"
                         android:textColor="#ffffffff" />
 
-                    <Button android:id="@+id/email_sign_in_button" style="?android:textAppearanceSmall"
+                    <Button
+                        android:id="@+id/email_sign_in_button" style="?android:textAppearanceSmall"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:text="signIn"
                         android:textStyle="bold"
                         android:textColor="#ffffffff"
-                        android:background="#ff7e51c2" />
+                        android:background="@color/red" />
 
 
                     <ImageView
@@ -86,13 +88,14 @@
         android:id="@+id/ll3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="1.5"
         android:gravity="bottom|center_horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sign up"
+            android:layout_gravity="center"
             android:id="@+id/signUpTextView"
             android:autoLink="web"
             android:textColor="#ffffffff" />

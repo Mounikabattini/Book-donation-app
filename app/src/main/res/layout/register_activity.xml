@@ -6,7 +6,7 @@
     android:paddingLeft="5dp"
     android:paddingRight="5dp"
     android:paddingTop="5dp"
-    android:background="#ffBE80FF"
+    android:background="@color/bgcolor"
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true">
 
@@ -55,7 +55,8 @@
                         android:textColorHint="#ffffffff"
                         android:textColor="#ffffffff" />
 
-                    <EditText android:id="@+id/password" android:layout_width="match_parent"
+                    <EditText
+                        android:id="@+id/passwordone" android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter password"
                         android:imeOptions="actionUnspecified" android:inputType="textPassword"
@@ -63,7 +64,7 @@
                         android:layout_marginBottom="10dp"
                         android:textColorHint="#ffffffff"
                         android:textColor="#ffffffff" />
-                    <EditText android:id="@+id/cnpassword" android:layout_width="match_parent"
+                    <EditText android:id="@+id/cnpasswordone" android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Reenter password"
                         android:imeOptions="actionUnspecified" android:inputType="textPassword"
@@ -92,13 +93,15 @@
         android:id="@+id/ll3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="1.2"
         android:gravity="bottom|center_horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:text="Sign In"
+            android:textColorLink="@color/red"
+            android:layout_gravity="center"
             android:id="@+id/signINTextView"
             android:autoLink="web"
             android:textColor="#ffffffff" />
