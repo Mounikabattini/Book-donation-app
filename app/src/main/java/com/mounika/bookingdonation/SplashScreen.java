@@ -32,7 +32,7 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_activity);
-            checkPermission();
+        checkPermission();
 
 
 
@@ -153,7 +153,7 @@ public class SplashScreen extends AppCompatActivity {
                             @Override
                             public void run() {
                                 // Your code logic goes here
-                               Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+                                Intent intent = new Intent(SplashScreen.this, MainActivity.class);
                                 startActivity(intent);
                                 finish();
                             }
